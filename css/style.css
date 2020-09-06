@@ -1,0 +1,718 @@
+/*Fuentes importamos*/
+
+@font-face {
+    font-family: "TrebuchetMS";
+    src: url(fonts/TrebuchetMS.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BebasNeue";
+    src: url(fonts/BebasNeue.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "WebSymbolsRegular";
+    src: url('fonts/websymbols-regular-webfont.eot');
+    src: url('fonts/websymbols-regular-webfont.eot?#iedix') format('embedded-opentype'), url('fonts/websymbols-regular-webfont.woff') format('woff'), url('fonts/websymbols-regular-webfont.ttf') format('truetype'), url('fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('swg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*GENERALES*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url("../img/pattern.png");
+}
+
+.wrap {
+    width: 1200px;
+    margin: 0px auto;
+    /*para centrar un elemento en css*/
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+
+/*HEADER*/
+
+#header {
+    width: 100%;
+    height: 70px;
+    background-color: #000000;
+    font-family: BebasNeue;
+    color: #FFFFFF;
+}
+
+#logo {
+    float: left;
+    width: 202px;
+    height: 55px;
+    background-color: #37bcf9;
+    text-align: center;
+    margin-top: 8px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 300ms;
+}
+
+#logo:hover {
+    border-radius: 2px;
+    color: black;
+    background-color: #ccc;
+}
+
+#logo:hover .gear {
+    animation: fromBellow 500ms linear;
+}
+
+@keyframes fromBellow {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(200%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+#logo h3 {
+    display: block;
+    float: right;
+    font-size: 40px;
+    margin-top: 5px;
+    transition: all 300ms;
+    margin-right: 65px;
+}
+
+#logo:hover h3 {
+    animation: fromRight 300ms linear;
+}
+
+@keyframes fromRight {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+#logo .gear {
+    display: block;
+    float: left;
+    font-size: 30px;
+    margin-top: 8px;
+    margin-left: 26px;
+    animation: rotate-gear;
+    animation-duration: 2s;
+    /*dos segundos*/
+    animation-iteration-count: infinite;
+    /*infinito*/
+    animation-timing-function: linear;
+    /*tiempo linear*/
+}
+
+@keyframes rotate-gear {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.gear {
+    font-family: "WebSymbolsRegular";
+}
+
+#menu {
+    display: block;
+    float: right;
+    height: 70px;
+    background-color: transparent;
+}
+
+#menu li {
+    font-size: 24px;
+    display: inline-block;
+    margin: 0px 20px 0px 20px;
+    letter-spacing: 1px;
+    /*para que las letras se pearen un poco*/
+    line-height: 70px;
+    /*altura de lina*/
+}
+
+#menu ul li a {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    outline: none;
+    transition: all 300ms;
+}
+
+#menu ul li a:hover {
+    color: #37bcf9;
+    outline: none;
+    /*scale hace un zoom*/
+    transform: scale(1.2, 1.2);
+    /*solo le da trnnsformacion al elemento*/
+}
+
+
+/*BANNER*/
+
+#banner {
+    width: 95.6%;
+    height: 100px;
+    border: 10px solid white;
+    box-shadow: 0px 0px 2px gray;
+    background-image: url("../img/bakbaner.png");
+    background-position: -250px -200px;
+    margin: 20px auto;
+    overflow: hidden;
+    animation: backBanner 10s linear;
+}
+
+@keyframes backBanner {
+    0% {
+        background-position: 0px 0px;
+    }
+    100% {
+        background-position: -250px -200px;
+    }
+}
+
+#banner h1 {
+    font-family: BebasNeue;
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 27px auto;
+    font-weight: normal;
+    text-shadow: 2px 2px 1px #000;
+    animation: showText 10s linear;
+}
+
+@keyframes showText {
+    0% {
+        transform: translateX(-600%) scale(5, 5);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(600%) scale(5, 5);
+        opacity: 1;
+    }
+    75% {
+        transform: translateX(-600%) scale(5, 5);
+        text-shadow: none;
+        color: transparent;
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%) scale(1, 1);
+        text-shadow: 2px 2px 1px #000;
+        color: white;
+        opacity: 1;
+    }
+}
+
+
+/*CARDS*/
+
+.cards {
+    display: block;
+    float: left;
+    width: 206px;
+    height: 306px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 2px #ddd;
+    overflow: hidden;
+    margin: 16px;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.cards:hover {
+    background-color: #000;
+}
+
+.icon {
+    font-family: "WebSymbolsRegular";
+    text-align: center;
+}
+
+.cards .icon {
+    display: block;
+    width: 100%;
+    height: 130px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 110px;
+    margin: 0px auto;
+    transition: all 300ms;
+}
+
+.cards:hover .icon {
+    font-size: 70px;
+    color: #37bcf9;
+    animation: showIcon 300ms linear;
+}
+
+@keyframes showIcon {
+    from {
+        transform: translateY(-200%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+.cards .category {
+    width: 100%;
+    height: 50px;
+    font-family: "TrebuchetMS";
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
+    color: #00538c;
+    transition: all 300ms;
+}
+
+.cards:hover .category {
+    color: white;
+    animation: showCategory 400ms linear;
+}
+
+@keyframes showCategory {
+    from {
+        transform: translateY(-300%);
+        color: #000
+    }
+    to {
+        transform: translateY(0%);
+        color: #FFF
+    }
+}
+
+.cards .description {
+    width: 100%;
+    font-family: "TrebuchetMS";
+    text-align: center;
+    color: #117cc4;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.cards:hover .description {
+    color: white;
+    animation: showDescription 400ms linear;
+}
+
+@keyframes showDescription {
+    from {
+        transform: translateX(-200%);
+        color: #000
+    }
+    to {
+        transform: translateX(0%);
+        color: #FFF
+    }
+}
+
+
+/*BARRA LATERAL*/
+
+#lateral {
+    display: block;
+    float: right;
+    width: 300px;
+    min-height: 1200px;
+    font-family: "TrebuchetMS";
+    margin: 20px;
+}
+
+aside h3 {
+    display: block;
+    width: auto;
+    height: 45px;
+    line-height: 49px;
+    /*efecto 3d con box-shadow*/
+    background-image: url(../img/pxgray.png);
+    box-shadow: 0px 1px 0px #393d3f, 1px 2px 0px #393d3f, 2px 3px 0px #393d3f, 3px 4px 0px #393d3f;
+    text-align: left;
+    font-size: 30px;
+    font-family: "BebasNeue";
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding-left: 15px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+
+/*coje el primer h3 de la barra lateral*/
+
+#lateral h3:first-child {
+    margin-top: 0px;
+}
+
+#search {
+    display: block;
+    width: 90%;
+    height: 30px;
+    margin: 10px auto;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px #ccc inset;
+}
+
+#lateral input[type="text"] {
+    border: none;
+    width: 85%;
+    height: 27px;
+    padding-left: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #ccc;
+    transition: all 300ms;
+}
+
+#lateral input[type="text"]:focus {
+    outline: none;
+    color: #555;
+}
+
+#lateral input[type="button"],
+#lateral input[type="submit"],
+input[type="reset"] {
+    width: 10%;
+    height: 30px;
+    border-radius: 0px 5px 5px 0px;
+    background-color: transparent;
+    border-color: transparent;
+    border-left-color: #eee;
+    cursor: pointer;
+}
+
+#login,
+#socials,
+#sponsor {
+    display: block;
+    width: 85%;
+    height: 245px;
+    margin: 10px auto;
+    background-color: #FFFFFF;
+    box-shadow: 0px 6px 4px 2px #ccc;
+    padding: 0px 10px 0px 10px;
+}
+
+input[type="email"],
+input[type="password"] {
+    display: block;
+    float: left;
+    border: none;
+    width: 85%;
+    height: 30px;
+    padding-left: 35px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px #ccc inset;
+    color: gray;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    color: #555;
+    box-shadow: 1px 1px 1px gray;
+}
+
+#login label {
+    display: block;
+    position: relative;
+    float: left;
+    top: 25px;
+    left: 10px;
+    font-size: 15px;
+}
+
+#password {
+    font-size: 20px !important;
+    top: 30px !important;
+}
+
+#login input[type="submit"],
+input[type="reset"] {
+    display: block;
+    float: left;
+    margin-top: 20px;
+    width: 40%;
+    height: 35px;
+    padding: 5px 5px 5px 5px;
+    margin-left: 15px;
+    border-radius: 0px 0px 0px 0px;
+    border: 1px solid #156785;
+    background: linear-gradient(to bottom, #3eb8e5 0%, #2ca0ea 100%);
+    color: white;
+    font-family: "TrebuchetMS";
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#lateral input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background: linear-gradient(to bottom, #137da4 0%, #348ec8 100%);
+}
+
+#login a {
+    display: block;
+    width: 100%;
+    float: left;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+}
+
+
+/*REDESS SOCIALES*/
+
+#socials {
+    height: 210px;
+}
+
+#socials a {
+    display: block;
+    text-decoration: none;
+    line-height: 65px;
+    margin-left: 10px;
+}
+
+#socials .icon {
+    color: #000;
+    text-align: left;
+    font-size: 30px;
+}
+
+#socials .overlay {
+    display: block;
+    height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 1px #ccc;
+    border: 3px solid white;
+    box-shadow: 0px 0px 4px #ccc;
+    background-color: #f4f7fe;
+    position: absolute;
+    padding: 5px;
+    margin-left: 70px;
+    margin-top: -52px;
+    transform: translateX(-80%);
+    opacity: 0;
+    transition: all 400ms;
+}
+
+#socials div:hover .overlay {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+
+/*ARTICULOS*/
+
+#articles {
+    display: block;
+    float: left;
+    width: 765px;
+    font-family: "TrebuchetMS";
+    margin: 20px;
+}
+
+#articles h2 {
+    display: block;
+    width: auto;
+    height: 75px;
+    line-height: 49px;
+    /*efecto 3d con box-shadow*/
+    background-image: url(../img/pxgray.png);
+    box-shadow: 0px 1px 0px #393d3f, 1px 2px 0px #393d3f, 2px 3px 0px #393d3f, 3px 4px 0px #393d3f;
+    text-align: center;
+    font-size: 40px;
+    font-family: "BebasNeue";
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding-left: 15px;
+    line-height: 75px;
+}
+
+article {
+    display: block;
+    margin-top: 40px;
+    margin-left: 5px;
+    border: 1px solid #d0d0d0;
+    padding: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 4px #ddd;
+}
+
+article .data {
+    display: block;
+    float: right;
+    position: relative;
+    padding: 10px;
+    background-color: #393d3f;
+    border-radius: 0px 0px 0px 5px;
+    margin-top: -10px;
+    margin-right: -11px;
+}
+
+article span {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+article h4 a {
+    display: block;
+    text-decoration: none;
+    color: #00538c;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+article h4 a:hover {
+    text-decoration: underline;
+}
+
+article p {
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+#blog {
+    height: 100px;
+    transition: all 1s;
+}
+
+#blog:hover {
+    background-color: #333;
+    border: 10px solid #37bcf9;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+article#blog a {
+    display: block;
+    padding: 30px;
+    font-family: "BebasNeue";
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-align: center;
+    color: #00538c;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#blog:hover a {
+    text-shadow: 1px 1px 1px #000, 1px 2px 1px #000, 1px 3px 1px #000, 1px 4px 1px #000, 1px 5px 1px #000, 1px 6px 1px #000;
+    color: white
+}
+
+
+/*footer*/
+
+#footer {
+    display: block;
+    width: 100%;
+    height: 470px;
+    background-color: #000000;
+    color: #FFFFFF;
+    overflow: hidden;
+}
+
+#footer .wrap>div {
+    float: left;
+    width: 320px;
+    height: 370px;
+    margin: 40px;
+    text-align: center;
+    color: white;
+    font-family: 'Trebuchet MS';
+}
+
+#footer h5 {
+    display: block;
+    width: 100%;
+    background: url(../img/pxgray.png), white;
+    color: #000;
+    font-size: 40px;
+    font-family: "BebasNeue";
+    letter-spacing: 2px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#menu_footer>ul {
+    text-align: left;
+    margin: 20px;
+    font-size: 25px;
+}
+
+#menu_footer>ul>li {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#menu_footer>ul>li>a {
+    display: block;
+    text-decoration: none;
+    height: 40px;
+    color: #37bcf9;
+    font-family: 'Trebuchet MS';
+    font-size: 25px;
+    transition: all 300ms;
+}
+
+#menu_footer>ul>li:hover a {
+    border-bottom: 1px solid #ccc;
+    padding-left: 40px;
+    color: white;
+    width: 100%;
+    transform: scale(1.1, 0.9);
+    text-decoration: none;
+}
+
+#footer iframe {
+    border-radius: 5px;
+}
+
+#footer img {
+    margin-bottom: 15px;
+    transition: all 300ms;
+}
+
+#info img:hover {
+    transform: scale(1.2, 1.2);
+}
+
+#info #browsers>a>img {
+    width: 45px;
+}
